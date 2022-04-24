@@ -27,6 +27,6 @@ int main(){
 
     cin >> n;
 
-    cout << Fibonacci(n) << " " << fibonacci_naive(n) << endl;
+    cout << Fibonacci(n) << endl;
     return (0);
 }

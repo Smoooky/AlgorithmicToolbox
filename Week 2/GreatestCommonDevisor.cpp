@@ -33,16 +33,18 @@ int gcd(int a, int b){
 
 int main (){
     int a, b;
-    while (true) {
-        a = rand()%100000;
-        b = rand()%100000;
-        if ( gcd(a, b) == gcd_naive(a, b))
-            cout << "OK " << a << " " << b << gcd(a, b) << " " << gcd_naive(a, b) << endl ;
-        else {
-            cout << "KO " << a << " " << b << gcd(a, b) << " " << gcd_naive(a, b) << endl ;
-            break;
-        }
-    }
+//    while (true) {
+//        a = rand()%100000;
+//        b = rand()%100000;
+//        if ( gcd(a, b) == gcd_naive(a, b))
+//            cout << "OK " << a << " " << b << gcd(a, b) << " " << gcd_naive(a, b) << endl ;
+//        else {
+//            cout << "KO " << a << " " << b << gcd(a, b) << " " << gcd_naive(a, b) << endl ;
+//            break;
+//        }
+//    }
 //    cout << gcd_naive(0, 378) << endl;
-//    cout << gcd(0, 378) << endl;
+    cin >> a >> b;
+    cout << gcd(a, b) << endl;
+    return (0);
 }
