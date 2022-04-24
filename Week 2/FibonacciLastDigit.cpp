@@ -23,22 +23,25 @@ int get_fibonacci_last_digit_naive(int n) {
 }
 
 int FibonacciLastDigit(int n) {
-    vector<int> nums(n + 1);
-    nums[0] = 0;
-    nums[1] = 1;
+    int n1, n2, n3;
+
+    n1 = 0;
+    n2 = 1;
+    if (n == 0)
+        return (n1);
     for (int i = 2; i <= n; i++) {
-        nums[i] = nums[i - 1] + nums[i - 2];
-        if (nums[i] >= 10)
-            nums[i] -= 10;
+        n3 = (n1 + n2) % 10;
+        n1 = n2;
+        n2 = n3;
     }
-    return (nums[n]);
+    return (n2);
 }
 
 int main(){
 //    int a;
 //    srand(time(NULL));
 //    while (true) {
-//        a = rand()%100;
+//        a = rand()%25;
 //        if (get_fibonacci_last_digit_naive(a) == FibonacciLastDigit(a))
 //            cout << "OK " << a << " " << a << " " << FibonacciLastDigit(a) << endl ;
 //        else {
@@ -49,6 +52,6 @@ int main(){
     int n;
 
     cin >> n;
-    cout << FibonacciLastDigit(79) << endl;
+    cout << FibonacciLastDigit(n) << endl;
     return (0);
 }
