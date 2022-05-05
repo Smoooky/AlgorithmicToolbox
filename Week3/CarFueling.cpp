@@ -8,27 +8,20 @@
 using namespace std;
 
 int compute_min_refills(int dist, int tank, vector<int> & stops) {
-    int res = 0;
-    vector<int>distance(stops.size());
-    int i = 1;
-    int curTank = tank;
+    int refills = 0;
+    int curr_refill = 0;
+    int limit = tank;
 
-    vector<int>::iterator it = stops.begin();
-    distance[0] = *it;
-    for (it; it != stops.end() - 1; it++) {
-        distance[i++] = *(it + 1) - *it;
+    while (limit < dist){
+        if (curr_refill >= stops.size() || stops[curr_refill] > limit)
+            return -1;
+        while (curr_refill < stops.size() - 1 && stops[curr_refill + 1] <= limit)
+            curr_refill++;
+        refills++;
+        limit = stops[curr_refill] + tank;
+        curr_refill++;
     }
-    distance[i] = dist - *it;
-    sort(distance.begin(), distance.end(), greater<int>());
-    for (int a : distance){
-        if (tank >= a)
-            curTank -= a;
-        else {
-            curTank = tank;
-            res++;
-        }
-    }
-    return res;
+    return refills;
 }
 
 
